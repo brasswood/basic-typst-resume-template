@@ -5,7 +5,13 @@
 
 == Education
 
-#edu(institution: "Example University", degree: "Computer Science")
+#edu(
+  institution: "Example University",
+  degrees: (
+    (dates: "2022–2024", degree: "M.S. Computer Science", body: [- Thesis]),
+    (dates: "2018–2022", degree: "B.S. Mathematics"),
+  ),
+)
 
 == Projects
 

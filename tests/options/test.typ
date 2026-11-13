@@ -20,9 +20,8 @@
 
 #edu(
   institution: "Université Exemple",
-  degree: "Informatique",
   location: "Paris",
-  dates: dates-helper(end-date: "2024"),
+  degrees: ((degree: "Informatique", dates: dates-helper(end-date: "2024")),),
   consistent: true,
 )
 

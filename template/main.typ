@@ -31,7 +31,7 @@
 * Lines that start with == are formatted into section headings
 * You can use the specific formatting functions if needed
 * The following formatting functions are listed below
-* #edu(dates: "", degree: "", gpa: "", institution: "", location: "", consistent: false)
+* #edu(institution: "", location: "", degrees: ((dates: "", degree: "", body: none),), consistent: false)
 * #work(company: "", dates: "", location: "", title: "")
 * #project(dates: "", name: "", role: "", url: "")
 * certificates(name: "", issuer: "", url: "", date: "")
@@ -45,14 +45,18 @@
 #edu(
   institution: "Harvey Mudd College",
   location: "Claremont, CA",
-  dates: dates-helper(start-date: "Aug 2023", end-date: "May 2027"),
-  degree: "Bachelor's of Science, Computer Science and Mathematics",
+  degrees: (
+    (
+      dates: dates-helper(start-date: "Aug 2023", end-date: "May 2027"),
+      degree: "Bachelor's of Science, Computer Science and Mathematics",
+      body: [- Cumulative GPA: 4.0\/4.0 | Dean's List, Harvey S. Mudd Merit Scholarship, National Merit Scholarship\
+        - Relevant Coursework: Data Structures, Program Development, Microprocessors, Abstract Algebra I: Groups and Rings, Linear Algebra, Discrete Mathematics, Multivariable & Single Variable Calculus, Principles and Practice of Comp Sci],
+    ),
+  ),
 
   // Uncomment the line below if you want edu formatting to be consistent with everything else
   // consistent: true
 )
-- Cumulative GPA: 4.0\/4.0 | Dean's List, Harvey S. Mudd Merit Scholarship, National Merit Scholarship
-- Relevant Coursework: Data Structures, Program Development, Microprocessors, Abstract Algebra I: Groups and Rings, Linear Algebra, Discrete Mathematics, Multivariable & Single Variable Calculus, Principles and Practice of Comp Sci
 
 == Work Experience
 
