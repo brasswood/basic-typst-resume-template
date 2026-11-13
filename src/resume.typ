@@ -155,21 +155,28 @@
   consistent: false,
 ) = {
   for (index, item) in degrees.enumerate() {
-    if consistent {
-    // edu-constant style (dates top-right, location bottom-right)
-      generic-two-by-two(
-        top-left: if index == 0 { strong(institution) } else { "" },
-        top-right: item.dates,
-        bottom-left: emph(item.degree),
-        bottom-right: if index == 0 { emph(location) } else { "" },
-      )
+    if index == 0 {
+      if consistent {
+        // edu-constant style (dates top-right, location bottom-right)
+        generic-two-by-two(
+          top-left: strong(institution),
+          top-right: item.dates,
+          bottom-left: emph(item.degree),
+          bottom-right: emph(location),
+        )
+      } else {
+        // original edu style (location top-right, dates bottom-right)
+        generic-two-by-two(
+          top-left: strong(institution),
+          top-right: location,
+          bottom-left: emph(item.degree),
+          bottom-right: emph(item.dates),
+        )
+      }
     } else {
-    // original edu style (location top-right, dates bottom-right)
-      generic-two-by-two(
-        top-left: if index == 0 { strong(institution) } else { "" },
-        top-right: if index == 0 { location } else { "" },
-        bottom-left: emph(item.degree),
-        bottom-right: emph(item.dates),
+      generic-one-by-two(
+        left: emph(item.degree),
+        right: emph(item.dates),
       )
     }
     if item.at("body", default: none) != none {
